@@ -35,7 +35,7 @@
 
     {
       mode = "n";
-      key = "<leader>w";
+      key = "<leader>x";
       action = "+windows";
     }
 
@@ -87,7 +87,7 @@
     # Windows
     {
       mode = "n";
-      key = "<leader>ww";
+      key = "<leader>xw";
       action = "<C-W>p";
       options = {
         silent = true;
@@ -97,7 +97,7 @@
 
     {
       mode = "n";
-      key = "<leader>wd";
+      key = "<leader>xd";
       action = "<C-W>c";
       options = {
         silent = true;
@@ -107,7 +107,7 @@
 
     {
       mode = "n";
-      key = "<leader>w-";
+      key = "<leader>xb";
       action = "<C-W>s";
       options = {
         silent = true;
@@ -117,7 +117,7 @@
 
     {
       mode = "n";
-      key = "<leader>w|";
+      key = "<leader>xr";
       action = "<C-W>v";
       options = {
         silent = true;
@@ -167,7 +167,7 @@
 
     {
       mode = "n";
-      key = "<C-s>";
+      key = "<leader>w";
       action = "<cmd>w<cr><esc>";
       options = {
         silent = true;
