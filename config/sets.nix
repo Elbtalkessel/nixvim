@@ -72,8 +72,8 @@
       # Place a column line
       # colorcolumn = "80";
 
-      # Reduce which-key timeout to 10ms
-      timeoutlen = 10;
+      # Reduce which-key timeout to 100ms
+      timeoutlen = 100;
 
       # Set encoding type
       encoding = "utf-8";
