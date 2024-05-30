@@ -378,6 +378,26 @@
       action = "<CMD> Grapple select index=4<CR>";
       options = {desc = "Grapple Select 4";};
     }
+
+    {
+      mode = "n";
+      key = "<S-u>";
+      action = "<CMD>redo<CR>";
+    }
+
+    {
+      mode = "n";
+      key = "<leader>y";
+      action = "+y";
+      options = {desc = "Yank";};
+    }
+
+    {
+      mode = "n";
+      key = "<leader>yf";
+      action = "<CMD>let @+=expand('%')<CR>";
+      options = {desc = "Yank file path";};
+    }
   ];
   extraConfigLua = ''
     function ToggleLineNumber()
