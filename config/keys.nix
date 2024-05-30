@@ -2,6 +2,12 @@
   globals.mapleader = " ";
 
   keymaps = [
+    {
+      mode = "n";
+      key = "<CR>";
+      action = "o<Esc>";
+      options = {desc = "Insert new line below";};
+    }
     # General maps
     {
       mode = "n";
@@ -377,12 +383,6 @@
       key = "<leader>4";
       action = "<CMD> Grapple select index=4<CR>";
       options = {desc = "Grapple Select 4";};
-    }
-
-    {
-      mode = "n";
-      key = "<S-u>";
-      action = "<CMD>redo<CR>";
     }
 
     {
