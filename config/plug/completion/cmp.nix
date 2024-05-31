@@ -1,6 +1,14 @@
 {
   plugins = {
+    # Sources
     cmp-emoji = {enable = true;};
+    cmp-nvim-lsp = {enable = true;}; # lsp
+    cmp-buffer = {enable = true;};
+    cmp-path = {enable = true;}; # file system paths
+    cmp_luasnip = {enable = true;}; # snippets
+    cmp-cmdline = {enable = false;}; # autocomplete for cmdline
+
+    # Completion setting
     cmp = {
       enable = true;
       settings = {
@@ -21,7 +29,6 @@
             option.get_bufnrs.__raw = "vim.api.nvim_list_bufs";
             keywordLength = 3;
           }
-          {name = "copilot";}
           {
             name = "path"; # file system paths
             keywordLength = 3;
@@ -48,75 +55,67 @@
           "<C-Space>" = "cmp.mapping.complete()";
           "<C-CR>" = "cmp.mapping.confirm({ select = true })";
           "<S-CR>" = "cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true })";
+          "<C-x>" = "cmp.mapping(cmp.mapping.complete({ config = { sources = cmp.config.sources({ { name = 'cmp_ai' }, }), }, }), { 'i' })";
         };
       };
     };
-    cmp-nvim-lsp = {enable = true;}; # lsp
-    cmp-buffer = {enable = true;};
-    cmp-path = {enable = true;}; # file system paths
-    cmp_luasnip = {enable = true;}; # snippets
-    cmp-cmdline = {enable = false;}; # autocomplete for cmdline
   };
   extraConfigLua = ''
-          luasnip = require("luasnip")
-          kind_icons = {
-            Text = "󰊄",
-            Method = "",
-            Function = "󰡱",
-            Constructor = "",
-            Field = "",
-            Variable = "󱀍",
-            Class = "",
-            Interface = "",
-            Module = "󰕳",
-            Property = "",
-            Unit = "",
-            Value = "",
-            Enum = "",
-            Keyword = "",
-            Snippet = "",
-            Color = "",
-            File = "",
-            Reference = "",
-            Folder = "",
-            EnumMember = "",
-            Constant = "",
-            Struct = "",
-            Event = "",
-            Operator = "",
-            TypeParameter = "",
-          } 
+    luasnip = require("luasnip")
+    kind_icons = {
+      Text = "󰊄",
+      Method = "",
+      Function = "󰡱",
 
-           local cmp = require'cmp'
+      Constructor = "",
+      Field = "",
+      Variable = "󱀍",
+      Class = "",
+      Interface = "",
+      Module = "󰕳",
+      Property = "",
+      Unit = "",
+      Value = "",
+      Enum = "",
+      Keyword = "",
+      Snippet = "",
+      Color = "",
+      File = "",
+      Reference = "",
+      Folder = "",
+      EnumMember = "",
+      Constant = "",
+      Struct = "",
+      Event = "",
+      Operator = "",
+      TypeParameter = "",
+    }
 
-       -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
-       cmp.setup.cmdline({'/', "?" }, {
-         sources = {
-           { name = 'buffer' }
-         }
-       })
+    local cmp = require'cmp'
 
-      -- Set configuration for specific filetype.
-       cmp.setup.filetype('gitcommit', {
-         sources = cmp.config.sources({
-           { name = 'cmp_git' }, -- You can specify the `cmp_git` source if you were installed it.
-         }, {
-           { name = 'buffer' },
-         })
-       })
+    -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
+    cmp.setup.cmdline({'/', "?" }, {
+      sources = {
+        { name = 'buffer' }
+      }
+    })
 
-       -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
-       cmp.setup.cmdline(':', {
-         sources = cmp.config.sources({
-           { name = 'path' }
-         }, {
-           { name = 'cmdline' }
-         }),
-    --      formatting = {
-    --       format = function(_, vim_item)
-    --         vim_item.kind = cmdIcons[vim_item.kind] or "FOO"
-    --       return vim_item
-    --      end
-    -- }
-       })  '';
+    -- Set configuration for specific filetype.
+    cmp.setup.filetype('gitcommit', {
+      sources = cmp.config.sources({
+        { name = 'cmp_git' }, -- You can specify the `cmp_git` source if you were installed it.
+      }, {
+        { name = 'buffer' },
+      })
+    })
+
+    -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+    cmp.setup.cmdline(':', {
+      sources = cmp.config.sources({
+        { name = 'path' }
+      }, {
+        { name = 'cmdline' }
+      }),
+    })
+  '';
 }
