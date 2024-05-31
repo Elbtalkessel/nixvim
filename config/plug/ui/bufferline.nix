@@ -129,7 +129,7 @@ in {
 
     {
       mode = "n";
-      key = "<leader>br";
+      key = "<leader>bh";
       action = "<cmd>BufferLineCloseRight<cr>";
       options = {
         desc = "Delete buffers to the right";
