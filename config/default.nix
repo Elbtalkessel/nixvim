@@ -35,12 +35,12 @@
     ./plug/statusline/lualine.nix
     #./plug/statusline/staline.nix
 
-    #./plug/treesitter/treesitter-context.nix
+    ./plug/treesitter/treesitter-context.nix
     ./plug/treesitter/treesitter-textobjects.nix
     ./plug/treesitter/treesitter.nix
 
-    #./plug/ui/alpha.nix
-    ./plug/ui/btw.nix
+    ./plug/ui/alpha.nix
+    #./plug/ui/btw.nix
     ./plug/ui/bufferline.nix
     ./plug/ui/noice.nix
     ./plug/ui/nvim-notify.nix
