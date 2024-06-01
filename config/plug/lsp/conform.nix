@@ -19,6 +19,7 @@
       nix = ["alejandra"];
       markdown = [["prettierd" "prettier"]];
       yaml = ["yamllint" "yamlfmt"];
+      vue = [["prettierd" "prettier"]];
     };
   };
 }
