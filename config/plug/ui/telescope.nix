@@ -183,7 +183,7 @@
     }
     {
       mode = "n";
-      key = "<leader>fe";
+      key = "<leader>fE";
       action = "<cmd>Telescope file_browser<cr>";
       options = {
         desc = "File browser";
@@ -191,7 +191,7 @@
     }
     {
       mode = "n";
-      key = "<leader>fE";
+      key = "<leader>fe";
       action = "<cmd>Telescope file_browser path=%:p:h select_buffer=true<cr>";
       options = {
         desc = "File browser";
@@ -206,8 +206,11 @@
         },
         find_files = {
           hidden = true
+        },
+        file_browser = {
+          hidden = true
         }
-      }
+      },
     }
   '';
 }
