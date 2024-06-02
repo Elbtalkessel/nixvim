@@ -8,6 +8,7 @@
       action = "o<Esc>";
       options = {desc = "Insert new line below";};
     }
+
     # General maps
     {
       mode = "n";
@@ -22,39 +23,9 @@
     }
 
     {
-      mode = "n";
-      key = "<leader>q";
-      action = "+quit/session";
-    }
-
-    {
       mode = ["n" "v"];
       key = "<leader>g";
       action = "+git";
-    }
-
-    {
-      mode = "n";
-      key = "<leader>u";
-      action = "+ui";
-    }
-
-    {
-      mode = "n";
-      key = "<leader>x";
-      action = "+windows";
-    }
-
-    {
-      mode = "n";
-      key = "<leader><Tab>";
-      action = "+tab";
-    }
-
-    {
-      mode = ["n" "v"];
-      key = "<leader>d";
-      action = "+debug";
     }
 
     {
@@ -63,13 +34,13 @@
       action = "+code";
     }
 
+    # Tabs
     {
-      mode = ["n" "v"];
-      key = "<leader>t";
-      action = "+test";
+      mode = "n";
+      key = "<leader><Tab>";
+      action = "+tab";
     }
 
-    # Tabs
     {
       mode = "n";
       key = "<leader><tab><tab>";
@@ -91,6 +62,12 @@
     }
 
     # Windows
+    {
+      mode = "n";
+      key = "<leader>x";
+      action = "+windows";
+    }
+
     {
       mode = "n";
       key = "<leader>xw";
@@ -171,17 +148,13 @@
       };
     }
 
+    # Quit/Session
     {
       mode = "n";
-      key = "<leader>w";
-      action = "<cmd>w<cr><esc>";
-      options = {
-        silent = true;
-        desc = "Save file";
-      };
+      key = "<leader>q";
+      action = "+quit/session";
     }
 
-    # Quit/Session
     {
       mode = "n";
       key = "<leader>qq";
@@ -190,6 +163,13 @@
         silent = true;
         desc = "Quit all";
       };
+    }
+
+    # Toggle UI elements
+    {
+      mode = "n";
+      key = "<leader>u";
+      action = "+ui";
     }
 
     {
@@ -222,6 +202,33 @@
       };
     }
 
+    # Copy commands
+    {
+      mode = "n";
+      key = "<leader>y";
+      action = "+y";
+      options = {desc = "Yank";};
+    }
+
+    {
+      mode = "n";
+      key = "<leader>yf";
+      action = "<CMD>let @+=expand('%')<CR>";
+      options = {desc = "Yank file path";};
+    }
+
+    # Misc / root level commands
+    {
+      mode = "n";
+      key = "<leader>w";
+      action = "<cmd>w<cr><esc>";
+      options = {
+        silent = true;
+        desc = "Save file";
+      };
+    }
+
+    # Regular commands extended / improved
     {
       mode = "v";
       key = "J";
@@ -275,65 +282,6 @@
       key = "N";
       action = "Nzzzv";
       options = {desc = "Allow search terms to stay in the middle ";};
-    }
-
-    # Paste stuff without saving the deleted word into the buffer
-    {
-      mode = "x";
-      key = "<leader>p";
-      action = ''"_dP'';
-      options = {desc = "Deletes to void register and paste over";};
-    }
-
-    # Copy stuff to system clipboard with <leader> + y or just y to have it just in vim
-    {
-      mode = ["n" "v"];
-      key = "<leader>y";
-      action = ''"+y'';
-      options = {desc = "Copy to system clipboard";};
-    }
-
-    {
-      mode = ["n" "v"];
-      key = "<leader>Y";
-      action = ''"+Y'';
-      options = {desc = "Copy to system clipboard";};
-    }
-
-    # Delete to void register
-    {
-      mode = ["n" "v"];
-      key = "<leader>D";
-      action = ''"_d'';
-      options = {desc = "Delete to void register";};
-    }
-
-    # <C-c> instead of pressing esc just because
-    {
-      mode = "i";
-      key = "<C-c>";
-      action = "<Esc>";
-    }
-
-    {
-      mode = "n";
-      key = "<leader>zz";
-      action = "<CMD> ZenMode | Pencil<CR>";
-      options = {desc = "Toggle writting mode";};
-    }
-
-    {
-      mode = "n";
-      key = "<leader>y";
-      action = "+y";
-      options = {desc = "Yank";};
-    }
-
-    {
-      mode = "n";
-      key = "<leader>yf";
-      action = "<CMD>let @+=expand('%')<CR>";
-      options = {desc = "Yank file path";};
     }
   ];
   extraConfigLua = ''

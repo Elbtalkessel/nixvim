@@ -23,7 +23,7 @@
       mode = "n";
       key = "<leader>j";
       action = "+j";
-      options = {desc = "Jump (grapple)";};
+      options = {desc = "+jump";};
     }
 
     {
