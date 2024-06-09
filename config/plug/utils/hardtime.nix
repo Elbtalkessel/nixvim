@@ -10,8 +10,8 @@
     restrictionMode = "hint";
     restrictedKeys = {
       "h" = ["n" "x"];
-      "j" = ["n" "x"];
-      "k" = ["n" "x"];
+      #"j" = ["n" "x"];
+      #"k" = ["n" "x"];
       "l" = ["n" "x"];
       "-" = ["n" "x"];
       "+" = ["n" "x"];
