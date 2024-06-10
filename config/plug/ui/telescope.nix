@@ -204,12 +204,6 @@
         colorscheme = {
           enable_preview = true
         },
-        find_files = {
-          hidden = true
-        },
-        file_browser = {
-          hidden = true
-        }
       },
     }
   '';
