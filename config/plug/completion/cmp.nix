@@ -51,16 +51,14 @@
           "<C-e>" = "cmp.mapping.abort()";
           "<C-b>" = "cmp.mapping.scroll_docs(-4)";
           "<C-f>" = "cmp.mapping.scroll_docs(4)";
-          # Causes a error
-          # "<C-Space>" = "cmp.mapping.complete()";
-          # "<CR>" = "cmp.mapping.confirm({ select = true })";
-          # "<S-CR>" = "cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true })";
+          "<C-Space>" = "cmp.mapping.complete()";
+          "<CR>" = "cmp.mapping.confirm({ select = true })";
+          "<S-CR>" = "cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true })";
         };
       };
     };
   };
   extraConfigLua = ''
-    luasnip = require("luasnip")
     kind_icons = {
       Text = "󰊄",
       Method = "",
@@ -91,6 +89,15 @@
     }
 
     local cmp = require'cmp'
+
+    cmp.setup({
+       snippet = {
+         -- REQUIRED - you must specify a snippet engine
+         expand = function(args)
+           require('luasnip').lsp_expand(args.body)
+         end,
+       },
+    })
 
     -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
     cmp.setup.cmdline({'/', "?" }, {
