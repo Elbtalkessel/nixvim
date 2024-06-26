@@ -21,7 +21,7 @@
     };
     keymaps = {
       "<leader><space>" = {
-        action = "find_files, {}";
+        action = "find_files, {hidden=true, no_ignore=true}";
         options = {
           desc = "Find project files";
         };
