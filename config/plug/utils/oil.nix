@@ -1,6 +1,6 @@
 {
   plugins.oil = {
-    enable = false;
+    enable = true;
     settings = {
       useDefaultKeymaps = true;
       deleteToTrash = true;
