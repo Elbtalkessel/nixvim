@@ -1,9 +1,7 @@
+{ config, lib, ... }:
 {
-  config,
-  lib,
-  ...
-}: {
   imports = [
+    ./autocommands.nix
     ./keys.nix
     ./sets.nix
     ./highlight.nix
@@ -37,28 +35,55 @@
     ./plug/treesitter/treesitter.nix
 
     ./plug/ui/alpha.nix
+    ./plug/ui/btw.nix
     ./plug/ui/bufferline.nix
+    ./plug/ui/indent-blankline.nix
     ./plug/ui/noice.nix
     ./plug/ui/nvim-notify.nix
+    #./plug/ui/precognition.nix
     ./plug/ui/telescope.nix
 
+    #./plug/utils/harpoon.nix
     ./plug/utils/comment.nix
+    ./plug/utils/comment-box.nix
     ./plug/utils/copilot.nix
     ./plug/utils/flash.nix
-    ./plug/utils/hardtime.nix
     ./plug/utils/grapple.nix
+    ./plug/utils/hardtime.nix
     ./plug/utils/illuminate.nix
+    ./plug/utils/markview.nix
+    ./plug/utils/mini.nix
     ./plug/utils/nvim-autopairs.nix
+    ./plug/utils/obsidian.nix
     ./plug/utils/oil.nix
-    ./plug/utils/undotree.nix
     ./plug/utils/ufo.nix
+    ./plug/utils/undotree.nix
     ./plug/utils/whichkey.nix
+    ./plug/utils/yaml-companion.nix
     ./plug/utils/venv-selector.nix
   ];
   options = {
     theme = lib.mkOption {
-      default = "paradise";
-      type = lib.types.enum ["paradise" "decay" "mountain" "tokyonight" "everforest" "everblush" "jellybeans" "aquarium" "gruvbox"];
+      default = lib.mkDefault "paradise";
+      type = lib.types.enum [
+        "paradise"
+        "decay"
+        "edge-dark"
+        "mountain"
+        "tokyonight"
+        "everforest"
+        "everblush"
+        "jellybeans"
+        "aquarium"
+        "gruvbox"
+      ];
+    };
+    assistant = lib.mkOption {
+      default = "none";
+      type = lib.types.enum [
+        "copilot"
+        "none"
+      ];
     };
   };
   config = {

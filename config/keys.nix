@@ -23,24 +23,60 @@
     }
 
     {
-      mode = ["n" "v"];
+      mode = [
+        "n"
+        "v"
+      ];
       key = "<leader>g";
       action = "+git";
     }
 
     {
-      mode = ["n" "v"];
-      key = "<leader>c";
-      action = "+code";
+      mode = "n";
+      key = "<leader>u";
+      action = "+ui";
     }
 
-    # Tabs
+    {
+      mode = "n";
+      key = "<leader>w";
+      action = "+windows";
+    }
+
     {
       mode = "n";
       key = "<leader><Tab>";
       action = "+tab";
     }
 
+    {
+      mode = [
+        "n"
+        "v"
+      ];
+      key = "<leader>d";
+      action = "+debug";
+    }
+
+    {
+      mode = [
+        "n"
+        "v"
+      ];
+      key = "<leader>c";
+      action = "+code";
+    }
+
+    {
+      mode = [
+        "n"
+        "v"
+      ];
+      key = "<leader>t";
+      action = "+test";
+    }
+
+    # Tabs
     {
       mode = "n";
       key = "<leader><tab><tab>";
@@ -64,13 +100,7 @@
     # Windows
     {
       mode = "n";
-      key = "<leader>x";
-      action = "+windows";
-    }
-
-    {
-      mode = "n";
-      key = "<leader>xw";
+      key = "<leader>ww";
       action = "<C-W>p";
       options = {
         silent = true;
@@ -80,7 +110,7 @@
 
     {
       mode = "n";
-      key = "<leader>xd";
+      key = "<leader>wd";
       action = "<C-W>c";
       options = {
         silent = true;
@@ -90,7 +120,7 @@
 
     {
       mode = "n";
-      key = "<leader>xb";
+      key = "<leader>w-";
       action = "<C-W>s";
       options = {
         silent = true;
@@ -100,7 +130,7 @@
 
     {
       mode = "n";
-      key = "<leader>xr";
+      key = "<leader>w|";
       action = "<C-W>v";
       options = {
         silent = true;
@@ -148,13 +178,17 @@
       };
     }
 
-    # Quit/Session
     {
       mode = "n";
-      key = "<leader>q";
-      action = "+quit/session";
+      key = "<C-s>";
+      action = "<cmd>w<cr><esc>";
+      options = {
+        silent = true;
+        desc = "Save file";
+      };
     }
 
+    # Quit/Session
     {
       mode = "n";
       key = "<leader>qq";
@@ -163,13 +197,6 @@
         silent = true;
         desc = "Quit all";
       };
-    }
-
-    # Toggle UI elements
-    {
-      mode = "n";
-      key = "<leader>u";
-      action = "+ui";
     }
 
     {
@@ -202,45 +229,22 @@
       };
     }
 
-    # Copy commands
-    {
-      mode = "n";
-      key = "<leader>y";
-      action = "+y";
-      options = {desc = "Yank";};
-    }
-
-    {
-      mode = "n";
-      key = "<leader>yf";
-      action = "<CMD>let @+=expand('%')<CR>";
-      options = {desc = "Yank file path";};
-    }
-
-    # Misc / root level commands
-    {
-      mode = "n";
-      key = "<leader>w";
-      action = "<cmd>w<cr><esc>";
-      options = {
-        silent = true;
-        desc = "Save file";
-      };
-    }
-
-    # Regular commands extended / improved
     {
       mode = "v";
       key = "J";
       action = ":m '>+1<CR>gv=gv";
-      options = {desc = "Use move command when line is highlighted ";};
+      options = {
+        desc = "Use move command when line is highlighted ";
+      };
     }
 
     {
       mode = "v";
       key = "K";
       action = ":m '>-2<CR>gv=gv";
-      options = {desc = "Use move command when line is highlighted ";};
+      options = {
+        desc = "Use move command when line is highlighted ";
+      };
     }
 
     {
@@ -274,14 +278,154 @@
       mode = "n";
       key = "n";
       action = "nzzzv";
-      options = {desc = "Allow search terms to stay in the middle ";};
+      options = {
+        desc = "Allow search terms to stay in the middle ";
+      };
     }
 
     {
       mode = "n";
       key = "N";
       action = "Nzzzv";
-      options = {desc = "Allow search terms to stay in the middle ";};
+      options = {
+        desc = "Allow search terms to stay in the middle ";
+      };
+    }
+
+    # Paste stuff without saving the deleted word into the buffer
+    {
+      mode = "x";
+      key = "<leader>p";
+      action = ''"_dP'';
+      options = {
+        desc = "Deletes to void register and paste over";
+      };
+    }
+
+    # Copy stuff to system clipboard with <leader> + y or just y to have it just in vim
+    {
+      mode = [
+        "n"
+        "v"
+      ];
+      key = "<leader>y";
+      action = ''"+y'';
+      options = {
+        desc = "Copy to system clipboard";
+      };
+    }
+
+    {
+      mode = [
+        "n"
+        "v"
+      ];
+      key = "<leader>Y";
+      action = ''"+Y'';
+      options = {
+        desc = "Copy to system clipboard";
+      };
+    }
+
+    # Delete to void register
+    {
+      mode = [
+        "n"
+        "v"
+      ];
+      key = "<leader>D";
+      action = ''"_d'';
+      options = {
+        desc = "Delete to void register";
+      };
+    }
+
+    # <C-c> instead of pressing esc just because
+    {
+      mode = "i";
+      key = "<C-c>";
+      action = "<Esc>";
+    }
+
+    {
+      mode = "n";
+      key = "<leader>m";
+      action = "<CMD> Grapple toggle <CR>";
+      options = {
+        desc = "Grapple Toggle tag";
+      };
+    }
+
+    {
+      mode = "n";
+      key = "<leader>k";
+      action = "<CMD> Grapple toggle_tags <CR>";
+      options = {
+        desc = "Grapple Toggle tag";
+      };
+    }
+
+    {
+      mode = "n";
+      key = "<leader>K";
+      action = "<CMD> Grapple toggle_scopes <CR>";
+      options = {
+        desc = "Grapple Toggle scopes";
+      };
+    }
+
+    {
+      mode = "n";
+      key = "<leader>j";
+      action = "<CMD> Grapple cycle forward <CR>";
+      options = {
+        desc = "Grapple Cycle forward";
+      };
+    }
+
+    {
+      mode = "n";
+      key = "<leader>J";
+      action = "<CMD> Grapple cycle backward <CR>";
+      options = {
+        desc = "Grapple Cycle backward";
+      };
+    }
+
+    {
+      mode = "n";
+      key = "<leader>1";
+      action = "<CMD> Grapple select index=1<CR>";
+      options = {
+        desc = "Grapple Select 1";
+      };
+    }
+
+    {
+      mode = "n";
+      key = "<leader>2";
+      action = "<CMD> Grapple select index=2<CR>";
+      options = {
+        desc = "Grapple Select 2";
+      };
+    }
+
+    {
+      mode = "n";
+      key = "<leader>3";
+      action = "<CMD> Grapple select index=3<CR>";
+      options = {
+        desc = "Grapple Select 3";
+      };
+    }
+
+    {
+      mode = "n";
+      key = "<leader>4";
+      action = "<CMD> Grapple select index=4<CR>";
+      options = {
+        desc = "Grapple Select 4";
+      };
     }
   ];
   extraConfigLua = ''

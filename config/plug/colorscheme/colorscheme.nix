@@ -1,11 +1,13 @@
-{config, ...}: let
-  lua = x: {__raw = x;};
-in {
+{ config, ... }:
+let
+  lua = x: { __raw = x; };
+in
+{
   colorschemes = {
     base16 = {
       enable = true;
       setUpBar = false;
-      colorscheme = import ../../colors/${config.theme}.nix {};
+      colorscheme = import ../../colors/${config.theme}.nix { };
     };
     gruvbox = {
       enable = false;
@@ -56,7 +58,7 @@ in {
     rose-pine = {
       enable = false;
       settings = {
-        style = "main"; #  "main", "moon", "dawn" or raw lua code
+        style = "main"; # "main", "moon", "dawn" or raw lua code
         styles = {
           bold = false;
           italic = false;
@@ -111,10 +113,10 @@ in {
               background = true;
             };
             underlines = {
-              errors = ["underline"];
-              hints = ["underline"];
-              information = ["underline"];
-              warnings = ["underline"];
+              errors = [ "underline" ];
+              hints = [ "underline" ];
+              information = [ "underline" ];
+              warnings = [ "underline" ];
             };
           };
         };

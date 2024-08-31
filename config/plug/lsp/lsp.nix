@@ -1,29 +1,71 @@
 {
   plugins = {
-    lsp-format = {enable = true;};
+    lsp-format = {
+      enable = true;
+    };
     lsp = {
       enable = true;
       servers = {
-        eslint = {enable = true;};
-        html = {enable = true;};
-        lua-ls = {enable = true;};
-        nil_ls = {enable = true;};
-        marksman = {enable = true;};
-        pyright = {enable = true;};
-        gopls = {enable = true;};
-        terraformls = {enable = false;};
-        tsserver = {enable = true;};
-        yamlls = {enable = true;};
-        volar = {enable = true;};
-        docker-compose-language-service = {enable = true;};
-        dockerls = {enable = true;};
-        htmx = {enable = true;};
-        jsonls = {enable = true;};
-        nginx-language-server = {enable = true;};
-        prismals = {enable = true;};
-        sqls = {enable = true;};
-        tailwindcss = {enable = true;};
-        templ = {enable = true;};
+        eslint = {
+          enable = true;
+        };
+        html = {
+          enable = true;
+        };
+        lua-ls = {
+          enable = true;
+        };
+        nil-ls = {
+          enable = true;
+        };
+        marksman = {
+          enable = true;
+        };
+        pyright = {
+          enable = true;
+        };
+        gopls = {
+          enable = true;
+        };
+        terraformls = {
+          enable = true;
+        };
+        tsserver = {
+          enable = false;
+        };
+        yamlls = {
+          enable = true;
+        };
+        volar = {
+          enable = true;
+        };
+        docker-compose-language-service = {
+          enable = true;
+        };
+        dockerls = {
+          enable = true;
+        };
+        htmx = {
+          enable = true;
+         };
+        jsonls = {
+          enable = true;
+        };
+        nginx-language-server = {
+          enable = true;
+        };
+        prismals = {
+          enable = true;
+        };
+        sqls = {
+          enable = true;
+        };
+        tailwindcss = {
+          enable = true;
+        };
+        templ = {
+          enable = true;
+        };
       };
       keymaps = {
         silent = true;
