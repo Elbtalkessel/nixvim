@@ -1,6 +1,6 @@
 {
   plugins.flash = {
-    enable = false;
+    enable = true;
     settings = {
       label = {
         uppercase = false;
