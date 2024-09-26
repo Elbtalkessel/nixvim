@@ -1,8 +1,8 @@
-{
-  pkgs,
-  lib,
-  ...
-}: let
+{ pkgs
+, lib
+, ...
+}:
+let
   repo = {
     owner = "linux-cultist";
     repo = "venv-selector.nvim";
@@ -10,7 +10,8 @@
     rev = "f202a8375919dd643d9d186fbc8dbe14dcb2e5a9";
     hash = "sha256-2+Xi7zUv2VcRjSs7lWvJP73nJ48vWBNw7KMIKpMMwcY=";
   };
-in {
+in
+{
   extraPlugins = with pkgs.vimUtils; [
     (buildVimPlugin {
       pname = "venv-selector.nvim";
@@ -33,7 +34,7 @@ in {
         },
         search = {
           code = {
-            command = 'find ~/code -path "*.venv/bin/python" -type l 2>/dev/null'
+            command = 'find ~/code -path "*venv/bin/python" -type l 2>/dev/null'
           },
         },
       },

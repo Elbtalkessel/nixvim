@@ -15,12 +15,11 @@
   };
 
   outputs =
-    {
-      nixpkgs,
-      nixvim,
-      flake-parts,
-      pre-commit-hooks,
-      ...
+    { nixpkgs
+    , nixvim
+    , flake-parts
+    , pre-commit-hooks
+    , ...
     }@inputs:
     flake-parts.lib.mkFlake { inherit inputs; } {
       systems = [
@@ -31,12 +30,11 @@
       ];
 
       perSystem =
-        {
-          system,
-          pkgs,
-          self',
-          lib,
-          ...
+        { system
+        , pkgs
+        , self'
+        , lib
+        , ...
         }:
         let
           nixvim' = nixvim.legacyPackages.${system};
