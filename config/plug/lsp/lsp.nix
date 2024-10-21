@@ -47,7 +47,7 @@
         };
         htmx = {
           enable = true;
-         };
+        };
         jsonls = {
           enable = true;
         };
@@ -64,6 +64,9 @@
           enable = true;
         };
         templ = {
+          enable = true;
+        };
+        ccls = {
           enable = true;
         };
       };
