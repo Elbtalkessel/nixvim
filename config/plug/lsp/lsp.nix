@@ -59,17 +59,6 @@
         };
         sqls = {
           enable = true;
-          settings = {
-            on_attach = {
-              __raw = ''
-                function(client, bufnr)
-                  client.server_capabilities.documentFormattingProvider = false
-                  client.server_capabilities.documentRangeFormattingProvider = false
-                  require('sqls').on_attach(client, bufnr)
-                end
-              '';
-            };
-          };
         };
         tailwindcss = {
           enable = true;
@@ -135,6 +124,14 @@
     };
   };
   extraConfigLua = ''
+    require'lspconfig'.sqls.setup{
+      on_attach = function(client, bufnr)
+        client.server_capabilities.documentFormattingProvider = false
+        client.server_capabilities.documentRangeFormattingProvider = false
+        require('sqls').on_attach(client, bufnr)
+      end
+    }
+
     local _border = "rounded"
 
     vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
