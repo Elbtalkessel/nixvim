@@ -5,7 +5,13 @@
     };
     lsp = {
       enable = true;
+      # Appends configuration after setting up all servers:
+      # https://github.com/nix-community/nixvim/blob/main/plugins/lsp/default.nix
       postConfig = "
+        # Not sure if it's correct or works at all, but fixes issue for me:
+        # https://github.com/sqls-server/sqls/issues/153
+        # Problem is, nixvim lsp configuration doesn't allow configure on_attach on
+        # per-ls basis, only globally and all ls inherit specified configuration.
         require('lspconfig').sqls.setup{
           on_attach = function(client, bufnr)
             client.server_capabilities.documentFormattingProvider = false
