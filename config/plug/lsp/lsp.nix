@@ -2,11 +2,6 @@
   plugins = {
     lsp-format = {
       enable = true;
-      settings = {
-        go = {
-          force = false;
-        };
-      };
     };
     lsp = {
       enable = true;
