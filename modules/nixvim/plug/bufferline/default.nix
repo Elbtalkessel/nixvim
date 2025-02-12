@@ -152,70 +152,73 @@ in
       };
     }
   ];
-  highlight = with colors; {
-    BufferLineBackground = {
-      bg = base01;
-    };
-    BufferLineBuffer = { };
-    BufferLineBufferSelected = {
-      bg = base0C;
-      fg = base00;
-    };
-    BufferLineBufferVisible = {
-      bg = base01;
-    };
-    BufferLineCloseButton = {
-      bg = base01;
-    };
-    BufferLinecloseButtonSelected = {
-      bg = base0C;
-      fg = base00;
-    };
-    BufferLineCloseButtonVisible = {
-      bg = base01;
-    };
-    BufferLineDuplicate = {
-      bg = base01;
-    };
-    BufferLineDuplicateSelected = {
-      bg = base0C;
-      fg = base00;
-    };
-    BufferLineDuplicateVisible = {
-      bg = base01;
-    };
-    BufferLineFill = {
-      bg = base00;
-    };
-    BufferLineIndicatorSelected = {
-      bg = base0C;
-    };
-    BufferLineIndicator = {
-      bg = base01;
-    };
-    BufferLineIndicatorVisible = {
-      bg = base01;
-    };
-    BufferLineModified = { };
-    BufferLineModifiedSelected = {
-      bg = base0C;
-    };
-    BufferLineModifiedVisible = {
-      bg = base01;
-    };
-    BufferLineOffsetSeparator = { };
-    BufferLinePick = { };
-    BufferLinePickSelected = {
-      bg = base0C;
-    };
-    BufferLinePickVisible = { };
-    BufferLineSeparator = {
-      bg = base01;
-      fg = base01;
-    };
-    BufferLineSeparatorSelected = {
-      bg = base0C;
-    };
-    BufferLineSeparatorVisible = { };
-  };
+  highlight = lib.mkIf config.bufferline-style (
+    with colors;
+    {
+      BufferLineBackground = {
+        bg = base01;
+      };
+      BufferLineBuffer = { };
+      BufferLineBufferSelected = {
+        bg = base0C;
+        fg = base00;
+      };
+      BufferLineBufferVisible = {
+        bg = base01;
+      };
+      BufferLineCloseButton = {
+        bg = base01;
+      };
+      BufferLinecloseButtonSelected = {
+        bg = base0C;
+        fg = base00;
+      };
+      BufferLineCloseButtonVisible = {
+        bg = base01;
+      };
+      BufferLineDuplicate = {
+        bg = base01;
+      };
+      BufferLineDuplicateSelected = {
+        bg = base0C;
+        fg = base00;
+      };
+      BufferLineDuplicateVisible = {
+        bg = base01;
+      };
+      BufferLineFill = {
+        bg = base00;
+      };
+      BufferLineIndicatorSelected = {
+        bg = base0C;
+      };
+      BufferLineIndicator = {
+        bg = base01;
+      };
+      BufferLineIndicatorVisible = {
+        bg = base01;
+      };
+      BufferLineModified = { };
+      BufferLineModifiedSelected = {
+        bg = base0C;
+      };
+      BufferLineModifiedVisible = {
+        bg = base01;
+      };
+      BufferLineOffsetSeparator = { };
+      BufferLinePick = { };
+      BufferLinePickSelected = {
+        bg = base0C;
+      };
+      BufferLinePickVisible = { };
+      BufferLineSeparator = {
+        bg = base01;
+        fg = base01;
+      };
+      BufferLineSeparatorSelected = {
+        bg = base0C;
+      };
+      BufferLineSeparatorVisible = { };
+    }
+  );
 }

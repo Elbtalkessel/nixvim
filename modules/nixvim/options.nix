@@ -32,6 +32,9 @@
         "none"
       ];
     };
+    bufferline-style = lib.mkOption {
+      default = false;
+      type = lib.types.bool;
+    };
   };
-
 }
