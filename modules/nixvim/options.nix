@@ -2,7 +2,7 @@
 {
   options = {
     theme = lib.mkOption {
-      default = lib.mkDefault "paradise";
+      default = lib.mkDefault "darkside";
       type = lib.types.enum [
         "aquarium"
         "decay"
@@ -22,6 +22,7 @@
         "test"
         "tokyonight"
         "yoru"
+        "darkside"
       ];
     };
     assistant = lib.mkOption {

@@ -4,7 +4,7 @@ let
 in
 {
   config = lib.mkIf config.colorschemes.base16.enable {
-    theme = "paradise";
+    theme = "darkside";
 
     highlight = with colors; {
       # Mini Notify
