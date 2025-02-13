@@ -101,7 +101,17 @@ in
             separator.right = "";
           }
         ];
-        lualine_c = [ "" ];
+        lualine_c = [
+          {
+            __unkeyed = "filename";
+            # 0 = just filename, 1 = relative path, 2 = absolute path
+            path = 1;
+            # Displays file status (readonly, modified)
+            file_status = true;
+            # Shortens the path to leave 40 spaces for other components
+            shorting_target = 40;
+          }
+        ];
         lualine_x = [ "" ];
         lualine_y = [ "" ];
         lualine_z = [

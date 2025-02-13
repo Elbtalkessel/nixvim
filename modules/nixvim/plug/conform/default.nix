@@ -69,9 +69,6 @@
           "yamllint"
           "yamlfmt"
         ];
-        terragrunt = [
-          "hcl"
-        ];
         bash = [
           "shfmt"
         ];
