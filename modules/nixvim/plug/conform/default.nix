@@ -2,7 +2,7 @@
 {
   extraPackages = with pkgs; [ shfmt ];
   plugins.conform-nvim = {
-    enable = true;
+    enable = false;
 
     lazyLoad.settings = {
       cmd = [
