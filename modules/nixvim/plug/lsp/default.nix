@@ -34,7 +34,6 @@ in
             "gopls"
             "yamlls"
             "elixirls"
-            "htmx"
             "volar"
             "ts_ls"
           ])
