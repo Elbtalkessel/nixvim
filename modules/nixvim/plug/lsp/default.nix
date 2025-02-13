@@ -3,6 +3,18 @@
   pkgs,
   ...
 }:
+let
+  enableLs =
+    lss:
+    builtins.listToAttrs (
+      builtins.map (ls: {
+        name = ls;
+        value = {
+          enable = true;
+        };
+      }) lss
+    );
+in
 {
   plugins = {
     lsp-format = {
@@ -11,55 +23,50 @@
     lsp = {
       enable = true;
       inlayHints = true;
-      servers = {
-        html = {
-          enable = true;
-        };
-        lua_ls = {
-          enable = true;
-        };
-        nixd = {
-          enable = true;
-          settings =
-            let
-              flake = ''(builtins.getFlake "github:elythh/flake)""'';
-              flakeNixvim = ''(builtins.getFlake "github:elythh/nixvim)""'';
-            in
-            {
-              nixpkgs = {
-                expr = "import ${flake}.inputs.nixpkgs { }";
-              };
-              formatting = {
-                command = [ "${lib.getExe pkgs.nixfmt-rfc-style}" ];
-              };
-              options = {
-                nixos.expr = ''${flake}.nixosConfigurations.grovetender.options'';
-                nixvim.expr = ''${flakeNixvim}.packages.${pkgs.system}.default.options'';
-              };
+      servers =
+        lib.recursiveUpdate
+          (enableLs [
+            "html"
+            "lua_ls"
+            "nixd"
+            "markdown_oxide"
+            "pyright"
+            "gopls"
+            "yamlls"
+            "elixirls"
+            "htmx"
+            "volar"
+            "ts_ls"
+          ])
+          {
+            nixd = {
+              settings =
+                let
+                  flake = ''(builtins.getFlake "github:elythh/flake)""'';
+                  flakeNixvim = ''(builtins.getFlake "github:elythh/nixvim)""'';
+                in
+                {
+                  nixpkgs = {
+                    expr = "import ${flake}.inputs.nixpkgs { }";
+                  };
+                  formatting = {
+                    command = [ "${lib.getExe pkgs.nixfmt-rfc-style}" ];
+                  };
+                  options = {
+                    nixos.expr = ''${flake}.nixosConfigurations.grovetender.options'';
+                    nixvim.expr = ''${flakeNixvim}.packages.${pkgs.system}.default.options'';
+                  };
+                };
             };
-        };
-        markdown_oxide = {
-          enable = true;
-        };
-        pyright = {
-          enable = true;
-        };
-        gopls = {
-          enable = true;
-        };
-        terraformls = {
-          enable = true;
-        };
-        yamlls = {
-          enable = true;
-          settings = {
-            schemaStore = {
-              enable = false;
-              url = "";
+            yamlls = {
+              settings = {
+                schemaStore = {
+                  enable = false;
+                  url = "";
+                };
+              };
             };
           };
-        };
-      };
       keymaps = {
         silent = true;
         lspBuf = {
