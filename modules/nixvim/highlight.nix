@@ -64,7 +64,7 @@ in
       };
       PmenuSel = {
         fg = "none";
-        bg = base02;
+        bg = base0D;
       };
 
       # Completion

@@ -29,30 +29,58 @@ in
             '';
           };
         };
-        layouts.default.__raw = ''
-          {
-            reverse = true,
-            layout = {
-              box = "horizontal",
-              backdrop = true,
-              width = 0.8,
-              height = 0.9,
-              border = "none",
-              {
+        layouts = {
+          # Big terminal window
+          default.__raw = ''
+            {
+              reverse = true,
+              layout = {
+                box = "horizontal",
+                backdrop = true,
+                fullscreen = true,
+                border = "none",
+                {
+                  box = "vertical",
+                  {
+                    win = "list",
+                    title = " Results ",
+                    title_pos = "center",
+                    border = "rounded"
+                  },
+                  {
+                    win = "input",
+                    height = 1,
+                    border = "rounded",
+                    title = "{title} {live} {flags}",
+                    title_pos = "center"
+                  },
+                },
+                {
+                  win = "preview",
+                  title = "{preview:Preview}",
+                  border = "rounded",
+                  title_pos = "center",
+                },
+              },
+            }
+          '';
+          # Small terminal window
+          vertical.__raw = ''
+            {
+              layout = {
+                backdrop = false,
+                fullscreen = true,
                 box = "vertical",
-                { win = "list", title = " Results ", title_pos = "center", border = "rounded" },
-                { win = "input", height = 1, border = "rounded", title = "{title} {live} {flags}", title_pos = "center" },
-              },
-              {
-                win = "preview",
-                title = "{preview:Preview}",
-                width = 0.45,
-                border = "rounded",
+                border = "none",
+                title = "{title} {live} {flags}",
                 title_pos = "center",
+                { win = "input", border = "top", height = 1 },
+                { win = "list", border = "top" },
+                { win = "preview", title = "{preview}", border = "top" },
               },
-            },
-          }
-        '';
+            }
+          '';
+        };
       };
     };
   };
@@ -82,7 +110,7 @@ in
       };
 
       SnacksPickerInput = {
-        bg = base01;
+        bg = base00;
         fg = base05;
       };
       SnacksPickerSearch = {
@@ -90,12 +118,17 @@ in
         fg = base08;
       };
       SnacksPickerInputBorder = {
-        bg = base01;
+        bg = base00;
         fg = base01;
       };
       SnacksPickerInputTitle = {
         bg = base08;
         fg = base01;
+      };
+
+      FloatBorder = {
+        fg = base01;
+        bg = base01;
       };
     };
 
