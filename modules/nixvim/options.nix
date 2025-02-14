@@ -47,5 +47,10 @@
       type = lib.type.listOf lib.types.str;
       description = "List of file patterns to enable spellcheck for. Without setting the `spellanag` option, this one does nothing.";
     };
+    lspFmt = lib.mkOption {
+      default = false;
+      type = lib.types.bool;
+      description = "Enables LSP formatting, prefer using conform plugin, as the LSP one doesn't honor local formatting preferences.";
+    };
   };
 }

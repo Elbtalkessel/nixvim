@@ -1,6 +1,7 @@
 {
   lib,
   pkgs,
+  config,
   ...
 }:
 let
@@ -18,7 +19,7 @@ in
 {
   plugins = {
     lsp-format = {
-      enable = true;
+      enable = config.lspFmt;
     };
     lsp = {
       enable = true;

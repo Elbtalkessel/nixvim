@@ -2,7 +2,7 @@
 {
   extraPackages = with pkgs; [ shfmt ];
   plugins.conform-nvim = {
-    enable = false;
+    enable = true;
 
     lazyLoad.settings = {
       cmd = [
@@ -13,7 +13,7 @@
 
     settings = {
       format_on_save = {
-        lspFallback = true;
+        lspFallback = config.lspFmt;
         timeoutMs = 500;
       };
       notify_on_error = true;

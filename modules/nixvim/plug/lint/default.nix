@@ -7,7 +7,7 @@
 {
   plugins = {
     lint = {
-      enable = false;
+      enable = true;
 
       lazyLoad.settings.event = "DeferredUIEnter";
 
