@@ -52,5 +52,10 @@
       type = lib.types.bool;
       description = "Enables LSP formatting, prefer using conform plugin, as the LSP one doesn't honor local formatting preferences.";
     };
+    thisisfine = lib.mkOption {
+      default = false;
+      type = lib.types.bool;
+      description = "Enables this is fine dog on dashboard.";
+    };
   };
 }
