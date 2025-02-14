@@ -1,4 +1,14 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
+let
+  mkFmt =
+    fmt: ftype:
+    builtins.listToAttrs (
+      map (t: {
+        name = t;
+        value = fmt;
+      }) ftype
+    );
+in
 {
   extraPackages = with pkgs; [ shfmt ];
   plugins.conform-nvim = {
@@ -18,64 +28,34 @@
       };
       notify_on_error = true;
 
-      formatters_by_ft = {
-        liquidsoap = [ "liquidsoap-prettier" ];
-        html = [
-          [
-            "prettierd"
-            "prettier"
-          ]
-        ];
-        css = [
-          [
-            "prettierd"
-            "prettier"
-          ]
-        ];
-        javascript = [
-          [
-            "prettierd"
-            "prettier"
-          ]
-        ];
-        javascriptreact = [
-          [
-            "prettierd"
-            "prettier"
-          ]
-        ];
-        typescript = [
-          [
-            "prettierd"
-            "prettier"
-          ]
-        ];
-        typescriptreact = [
-          [
-            "prettierd"
-            "prettier"
-          ]
-        ];
-        python = [ "black" ];
-        lua = [ "stylua" ];
-        nix = [ "nixfmt" ];
-        markdown = [
-          [
-            "prettierd"
-            "prettier"
-          ]
-        ];
-        yaml = [
-          "yamllint"
-          "yamlfmt"
-        ];
-        bash = [
-          "shfmt"
-        ];
-        sh = [
-          "shfmt"
-        ];
-      };
+      formatters_by_ft =
+        {
+          liquidsoap = [ "liquidsoap-prettier" ];
+          python = [ "black" ];
+          lua = [ "stylua" ];
+          nix = [ "nixfmt" ];
+          yaml = [
+            "yamllint"
+            "yamlfmt"
+          ];
+        }
+        // mkFmt [ "shfmt" ] [ "bash" "sh" ]
+        //
+          mkFmt
+            {
+              __unkeyed-1 = "prettierd";
+              __unkeyed-2 = "prettier";
+              stop_after_first = true;
+            }
+            [
+              "html"
+              "css"
+              "javascript"
+              "javascriptreact"
+              "typescript"
+              "typescriptreact"
+              "markdown"
+            ];
     };
   };
 }
