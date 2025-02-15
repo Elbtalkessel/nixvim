@@ -59,10 +59,12 @@
     };
     experemental = lib.mkOption {
       default = [ ];
-      type = lib.types.listOf lib.types.enum [
-        # TODO(python-venv)
-        "python-venv"
-      ];
+      type = lib.types.listOf (
+        lib.types.enum [
+          # TODO(python-venv)
+          "python-venv"
+        ]
+      );
       description = "List of experemental features to enable.";
     };
   };
