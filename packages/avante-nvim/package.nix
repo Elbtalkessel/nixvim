@@ -47,6 +47,7 @@ vimUtils.buildVimPlugin {
   inherit version src;
 
   dependencies = with vimPlugins; [
+    # TODO(cleanup): dressing. Can I replace it with snacks?
     dressing-nvim
     nui-nvim
     nvim-treesitter

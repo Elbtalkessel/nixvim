@@ -1,6 +1,7 @@
 {
+  # TODO(cleanup): dressing
   plugins.dressing = {
-    enable = true;
+    enable = false;
     settings = {
       input = {
         relative = "win";

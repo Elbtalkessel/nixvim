@@ -15,6 +15,7 @@
         command = "wincmd L";
       }
 
+      # TODO(cleanup): telescope
       # Close Telescope prompt in insert mode by clicking escape
       {
         event = [ "FileType" ];

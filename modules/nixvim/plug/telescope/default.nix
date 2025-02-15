@@ -2,6 +2,7 @@
 # │ SHAMELESSLY STOLEN FROM                                                                                                              │
 # │ https://github.com/khaneliman/khanelivim/blob/058274a310e20e74f7bd274c3f2d2af13a189a04/packages/khanelivim/plugins/telescope.nix#L33 │
 # ╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+# TODO(cleanup): telescope
 {
   config,
   lib,

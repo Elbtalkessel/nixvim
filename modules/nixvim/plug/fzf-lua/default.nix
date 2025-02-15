@@ -1,7 +1,9 @@
 {
   plugins = {
+    # TODO(cleanup): fzf-lua
     fzf-lua = {
       enable = false;
+      # TODO(cleanup): telescope
       profile = "telescope";
       settings = {
         keymap = {

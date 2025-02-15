@@ -14,6 +14,7 @@ in
         indentblankline = true;
         lsp_semantic = true;
         mini_completion = true;
+        # TODO(cleanup): telescope
         telescope = true;
         telescope_borders = false;
       };

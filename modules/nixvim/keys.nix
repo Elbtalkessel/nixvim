@@ -348,6 +348,7 @@
         key = "<C-c>";
         action = "<Esc>";
       }
+      # TODO(cleanup): telescope
       {
         mode = "n";
         key = "<C-Tab>";

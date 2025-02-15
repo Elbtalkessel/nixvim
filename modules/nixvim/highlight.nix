@@ -30,7 +30,7 @@ in
         fg = "none";
       };
 
-      # Telescope
+      # TODO(cleanup): telescope
       TelescopePromptBorder = {
         fg = base01;
         bg = base01;

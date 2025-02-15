@@ -11,6 +11,7 @@ in
   extraPackages = with pkgs; [ fd ];
 
   plugins.snacks = {
+    # https://github.com/folke/snacks.nvim/blob/main/docs/picker.md#%EF%B8%8F-config
     settings = {
       picker = {
         actions.__raw = ''require("trouble.sources.snacks").actions'';

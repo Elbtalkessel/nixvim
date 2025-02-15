@@ -1,5 +1,6 @@
 {
+  # TODO(cleanup): markdown renderer
   plugins.markview = {
-    enable = true;
+    enable = false;
   };
 }
