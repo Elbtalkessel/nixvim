@@ -25,7 +25,7 @@ Implement a unified system to enable/disable features across all tools simultane
 
 ## Interface
 
-- [ ] Picker: make highlight darker.
+- [ ] Picker: make lazygit item highlight darker like picker has.
 - [ ] LazyGit: fullscreen?
 
 ## Bugs

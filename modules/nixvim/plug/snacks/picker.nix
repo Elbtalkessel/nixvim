@@ -127,8 +127,14 @@ in
         fg = base01;
       };
 
+      # Window border.
       FloatBorder = {
         fg = base01;
+        bg = base01;
+      };
+
+      # Active item.
+      SnacksPickerListCursorLine = {
         bg = base01;
       };
     };
