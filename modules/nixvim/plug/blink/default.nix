@@ -28,7 +28,11 @@ in
 
       settings = {
         keymap = {
-          preset = "super-tab";
+          # https://cmp.saghen.dev/configuration/keymap.html#enter
+          preset = "enter";
+          # noop because interfierce when formatting lines.
+          "<Tab>" = [ ];
+          "<S-Tab>" = [ ];
         };
         signature = {
           enabled = true;
