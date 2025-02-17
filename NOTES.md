@@ -2,9 +2,7 @@
 
 ## TODO(python-venv): Implement automatic activation of the nearest virtual environment.
 
-https://github.com/AckslD/swenv.nvim looks for virtualenv at home directory or, if project.nvim plugin is installed - inside a project directory.
-For my usecase I need to look up from the current directory up until cwd and activate first found `.venv`. Alternatively Snacks has project picker
-but I need to verify if I can somehow retrieve project root dir path from it.
+It works, but can be a bit faster, for my usecase I only need to check directories up from the current buffer until the cwd to find a `.venv` directory. Doesn't seem `fd` or `find` can do it, can be a little project on its own.
 
 ## LSP
 

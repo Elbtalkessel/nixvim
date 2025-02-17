@@ -57,15 +57,5 @@
       type = lib.types.bool;
       description = "Enables this is fine dog on dashboard.";
     };
-    experemental = lib.mkOption {
-      default = [ ];
-      type = lib.types.listOf (
-        lib.types.enum [
-          # TODO(python-venv)
-          "python-venv"
-        ]
-      );
-      description = "List of experemental features to enable.";
-    };
   };
 }
