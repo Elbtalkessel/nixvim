@@ -1,8 +1,9 @@
 # Improvement Areas
 
-## TODO(python-venv): Implement automatic activation of the nearest virtual environment.
+## Python
 
-It works, but can be a bit faster, for my usecase I only need to check directories up from the current buffer until the cwd to find a `.venv` directory. Doesn't seem `fd` or `find` can do it, can be a little project on its own.
+- [ ] venv-selector: Replace fd with a custom utility to search .venv up from current file.
+- [ ] venv-selector: After save lsp "forgets" about virtualenv.
 
 ## LSP
 
@@ -25,6 +26,10 @@ Implement a unified system to enable/disable features across all tools simultane
 
 - [ ] Picker: make lazygit item highlight darker like picker has.
 - [ ] LazyGit: fullscreen?
+
+## Features
+
+- [ ] Mass find and replace, current specter solution is too clanky, maybe invest some time in learning how it works?
 
 ## Bugs
 
