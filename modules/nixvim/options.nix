@@ -25,13 +25,6 @@
         "darkside"
       ];
     };
-    assistant = lib.mkOption {
-      default = "none";
-      type = lib.types.enum [
-        "copilot"
-        "none"
-      ];
-    };
     bufferline-style = lib.mkOption {
       default = false;
       type = lib.types.bool;
@@ -56,6 +49,11 @@
       default = false;
       type = lib.types.bool;
       description = "Enables this is fine dog on dashboard.";
+    };
+    copilot = lib.mkOption {
+      default = false;
+      type = lib.types.bool;
+      description = "Enable copilot code completion.";
     };
   };
 }

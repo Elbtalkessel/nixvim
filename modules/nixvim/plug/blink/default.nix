@@ -1,16 +1,21 @@
 {
   config,
   pkgs,
+  lib,
   ...
 }:
 let
   colors = import ../colorscheme/colors/${config.theme}.nix { };
 in
 {
-  extraPlugins = with pkgs.vimPlugins; [
-    blink-cmp-copilot
-    blink-ripgrep-nvim
-  ];
+  extraPlugins =
+    with pkgs.vimPlugins;
+    [
+      blink-ripgrep-nvim
+    ]
+    ++ lib.optionals config.copilot [
+      blink-cmp-copilot
+    ];
 
   plugins = {
     cmp-emoji.enable = true;
@@ -39,25 +44,28 @@ in
         };
 
         sources = {
-          default = [
-            "buffer"
-            "calc"
-            "copilot"
-            "emoji"
-            "ripgrep"
-            "git"
-            "lsp"
-            "path"
-            "snippets"
-            "spell"
-            #"treesitter"
-          ];
+          default =
+            [
+              "buffer"
+              "calc"
+              "emoji"
+              "ripgrep"
+              "git"
+              "lsp"
+              "path"
+              "snippets"
+              "spell"
+              #"treesitter"
+            ]
+            ++ lib.optionals config.copilot [
+              "copilot"
+            ];
           providers = {
             emoji = {
               name = "emoji";
               module = "blink.compat.source";
             };
-            copilot = {
+            copilot = lib.mkIf config.copilot {
               name = "copilot";
               module = "blink-cmp-copilot";
             };
