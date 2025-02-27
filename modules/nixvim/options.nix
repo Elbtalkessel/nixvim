@@ -33,7 +33,7 @@
     spelllang = lib.mkOption {
       default = null;
       type = lib.types.nullOr lib.types.str;
-      description = "Disabled by default. To enable use valid attribue of nvim's spelllang, i.e. 'en,uk'.";
+      description = "Disabled by default. To enable use valid attribute of nvim's spelllang, i.e. 'en,uk'.";
     };
     spellcheck = lib.mkOption {
       default = [ ];
