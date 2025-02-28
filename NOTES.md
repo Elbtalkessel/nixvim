@@ -24,6 +24,10 @@ Allow choose language(s) to support.
 - [ ] Telescope: replaced by Snacks.
 - [ ] Fzf-lua: not sure why do I need this.
 
+## TODO(clarify)
+
+Document hard to understand places.
+
 ## Interface
 
 - [ ] Picker: make lazygit item highlight darker like picker has.

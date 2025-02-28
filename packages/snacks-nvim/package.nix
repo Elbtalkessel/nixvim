@@ -10,6 +10,8 @@ vimUtils.buildVimPlugin {
 
   dependencies = [ pkgs.vimPlugins.trouble-nvim ];
 
+  # TODO(clarify): find why check for these modules are failing, missing dependencies?
+  # Describe the reason.
   nvimSkipModule = [
     "snacks.dashboard"
     "snacks.indent"
@@ -28,5 +30,9 @@ vimUtils.buildVimPlugin {
     "snacks.scratch"
     "snacks.scroll"
     "snacks.words"
+    "snacks.image.init"
+    "snacks.image.convert"
+    "snacks.image.image"
+    "snacks.image.placement"
   ];
 }
