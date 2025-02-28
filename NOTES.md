@@ -9,11 +9,13 @@
 
 - [ ] HTMX support
 - [ ] Investigate and address suboptimal performance in large projects. Consider selectively disabling certain LSP features to improve responsiveness.
+- It thinks `.env` is a shell script. Length validation isn't helpful too
 
 ## TODO(conf): Configuration Centralization
 
 Consolidate supported file format configurations for LSP, linting, and formatting in a single location.
 Implement a unified system to enable/disable features across all tools simultaneously.
+Allow choose language(s) to support.
 
 ## TODO(cleanup): Plugin / Configuration cleanup
 
