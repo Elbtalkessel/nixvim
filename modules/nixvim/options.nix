@@ -37,7 +37,7 @@
     };
     spellcheck = lib.mkOption {
       default = [ ];
-      type = lib.type.listOf lib.types.str;
+      type = lib.types.listOf lib.types.str;
       description = "List of file patterns to enable spellcheck for. Without setting the `spellanag` option, this one does nothing.";
     };
     lspFmt = lib.mkOption {
@@ -54,6 +54,34 @@
       default = false;
       type = lib.types.bool;
       description = "Enable copilot code completion.";
+    };
+    languages = lib.mkOption {
+      default = [
+        "python"
+        "typescript"
+        "vue"
+        "nix"
+        "markdown"
+        "lua"
+        "shell"
+      ];
+      type = lib.types.listOf (
+        lib.types.enum [
+          "python"
+          "elixir"
+          # javascript and typescript
+          "typescript"
+          "go"
+          "vue"
+          "html"
+          "yaml"
+          "markdown"
+          "lua"
+          "nix"
+          "shell"
+        ]
+      );
+      description = "List of languages to enable support for.";
     };
   };
 }

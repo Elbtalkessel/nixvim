@@ -5,13 +5,33 @@
   ...
 }:
 let
+  /**
+    Builds attribute set for a set of language defininitions based on languages enabled in options.
+
+    Type: [[String]] -> AttrSet
+
+    Arguments:
+      lss: A list of lists, where each inner list contains two elements:
+           - The first element is the name of the language server (String)
+           - The second element is the language identifier (String)
+
+    Returns:
+      An attribute set where:
+      - Keys are language server names
+      - Values are objects with an `enable` property set to true if the corresponding language is in config.languages
+
+    Example:
+      enableLs [["rust-analyzer" "rust"] ["pyright" "python"]]
+      # Given "config.languages == ["python"]"
+      # -> { pyright: { enable = true; }; }
+  */
   enableLs =
     lss:
     builtins.listToAttrs (
       builtins.map (ls: {
-        name = ls;
+        name = builtins.elemAt ls 0;
         value = {
-          enable = true;
+          enable = builtins.elem (builtins.elemAt ls 1) config.languages;
         };
       }) lss
     );
@@ -27,16 +47,46 @@ in
       servers =
         lib.recursiveUpdate
           (enableLs [
-            "html"
-            "lua_ls"
-            "nixd"
-            "markdown_oxide"
-            "pyright"
-            "gopls"
-            "yamlls"
-            "elixirls"
-            "volar"
-            "ts_ls"
+            [
+              "html"
+              "html"
+            ]
+            [
+              "lua_ls"
+              "lua"
+            ]
+            [
+              "nixd"
+              "nix"
+            ]
+            [
+              "markdown_oxide"
+              "markdown"
+            ]
+            [
+              "pyright"
+              "python"
+            ]
+            [
+              "gopls"
+              "go"
+            ]
+            [
+              "yamlls"
+              "yaml"
+            ]
+            [
+              "elixirls"
+              "elixir"
+            ]
+            [
+              "volar"
+              "vue"
+            ]
+            [
+              "ts_ls"
+              "typescript"
+            ]
           ])
           {
             nixd = {

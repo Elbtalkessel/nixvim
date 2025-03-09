@@ -1,7 +1,8 @@
+{ config, ... }:
 {
   plugins.schemastore = {
-    enable = true;
-    yaml.enable = true;
+    inherit (config.plugins.lsp.servers.yamlls) enable;
+    yaml.enable = config.plugins.lsp.servers.yamlls.enable;
     json.enable = false;
   };
 }
