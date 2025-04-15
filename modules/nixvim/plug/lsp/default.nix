@@ -34,7 +34,6 @@ in
             "pyright"
             "gopls"
             "yamlls"
-            "elixirls"
             "volar"
             "ts_ls"
           ])
