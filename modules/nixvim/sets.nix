@@ -54,6 +54,8 @@
 
       # Enable text wrap
       wrap = true;
+      # Stops nvim insert newline as you type.
+      formatoptions = "l";
 
       # Better splitting
       splitbelow = true;
