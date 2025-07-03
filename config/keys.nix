@@ -96,6 +96,15 @@
         };
       }
 
+      # ctrl + s save
+      {
+        key = "<C-s>";
+        action = "<CMD>:w<CR>";
+        options = {
+          desc = "Save file";
+        };
+      }
+
     ];
   };
 }
