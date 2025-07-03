@@ -1,7 +1,11 @@
 {
   config = {
-    colorscheme = "retrobox";
-    colorschemes.catppuccin.enable = false;
+    colorscheme = "rose-pine";
+    colorschemes = {
+      rose-pine.enable = true;
+      everforest.enable = false;
+      kanagawa.enable = false;
+    };
     performance = {
       byteCompileLua = {
         enable = true;
