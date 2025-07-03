@@ -34,6 +34,9 @@
         volar = {
           enable = true;
         };
+        gopls = {
+          enable = true;
+        };
       };
       keymaps = {
         silent = true;
