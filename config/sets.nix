@@ -1,7 +1,7 @@
 {
   config = {
-    colorscheme = "catppuccin";
-    colorschemes.catppuccin.enable = true;
+    colorscheme = "retrobox";
+    colorschemes.catppuccin.enable = false;
     performance = {
       byteCompileLua = {
         enable = true;
