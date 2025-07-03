@@ -1,10 +1,10 @@
 {
   config = {
-    colorscheme = "rose-pine";
+    colorscheme = "kanagawa-wave";
     colorschemes = {
       rose-pine.enable = true;
-      everforest.enable = false;
-      kanagawa.enable = false;
+      everforest.enable = true;
+      kanagawa.enable = true;
     };
     performance = {
       byteCompileLua = {
