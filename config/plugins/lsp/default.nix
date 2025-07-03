@@ -37,6 +37,9 @@
         gopls = {
           enable = true;
         };
+        golangci_lint_ls = {
+          enable = true;
+        };
       };
       keymaps = {
         silent = true;
