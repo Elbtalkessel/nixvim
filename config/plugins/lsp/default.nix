@@ -39,6 +39,13 @@
           enable = true;
           filetypes = [ "sql" ];
           rootMarkers = [ ".sqlsrc.yaml" ];
+          # SQLS formatter removes all whitespaces.
+          # https://github.com/sqls-server/sqls/issues/149
+          # https://github.com/sqls-server/sqls/issues/153
+          onAttach.function = ''
+            client.server_capabilities.documentFormattingProvider = false
+            client.server_capabilities.documentRangeFormattingProvider = false
+          '';
           cmd = [
             (builtins.toString (
               pkgs.writeShellScript "sqls-wrapper.bash" ''
