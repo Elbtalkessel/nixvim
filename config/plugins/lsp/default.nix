@@ -1,4 +1,5 @@
-_: {
+{ pkgs, lib, ... }:
+{
   plugins = {
     lsp-format = {
       enable = true;
@@ -39,10 +40,33 @@ _: {
           filetypes = [ "sql" ];
           rootMarkers = [ ".sqlsrc.yaml" ];
           cmd = [
-            "sqls"
-            "-config"
-            "$DEVENV_ROOT/.sqlsrc.yaml"
+            (builtins.toString (
+              pkgs.writeShellScript "sqls-wrapper.bash" ''
+                #!${lib.getExe pkgs.bash}
+
+                # sqls.nvim does not support per project configuration
+                # (or I'm unaware of such).
+                # This script searches for a nearest configuration starting
+                # from a directory where lsp was attached.
+
+                conf=".sqlsrc.yaml"
+                dir="''$(pwd)"
+                path=""
+
+                while [[ "''$dir" != "/" ]]; do
+                  path_="''$dir/''$conf"
+                  if [[ -e "''$path_" ]]; then
+                    path="''$path_"
+                    break
+                  fi
+                  dir="''$(dirname "''$dir")"
+                done
+
+                ${lib.getExe pkgs.sqls} -config "''$path" "''$@"
+              ''
+            ))
           ];
+          package = pkgs.sqls;
         };
       };
       keymaps = {
