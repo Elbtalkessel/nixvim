@@ -51,34 +51,34 @@
             ripgrep = {
               name = "Ripgrep";
               module = "blink-ripgrep";
-              score_offset = 1;
+              score_offset = 300;
             };
             dictionary = {
               name = "Dict";
               module = "blink-cmp-dictionary";
-              min_keyword_length = 3;
+              min_keyword_length = 100;
             };
             emoji = {
               name = "Emoji";
               module = "blink-emoji";
-              score_offset = 1;
+              score_offset = 0;
             };
             copilot = {
               name = "copilot";
               module = "blink-copilot";
               async = true;
-              score_offset = 100;
+              score_offset = 200;
             };
-            lsp.score_offset = 4;
+            lsp.score_offset = 400;
             spell = {
               name = "Spell";
               module = "blink-cmp-spell";
-              score_offset = 1;
+              score_offset = 0;
             };
             git = {
               module = "blink-cmp-git";
               name = "git";
-              score_offset = 100;
+              score_offset = 0;
               opts = {
                 commit = { };
                 git_centers = {
