@@ -41,7 +41,7 @@ _: {
           cmd = [
             "sqls"
             "-config"
-            "$DEVENV_ROOT/.sqlrc.yaml"
+            "$DEVENV_ROOT/.sqlsrc.yaml"
           ];
         };
       };
