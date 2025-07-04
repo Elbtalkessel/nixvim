@@ -1,4 +1,4 @@
-{
+_: {
   plugins = {
     lsp-format = {
       enable = true;
@@ -17,9 +17,6 @@
           enable = true;
         };
         markdown_oxide = {
-          enable = true;
-        };
-        terraformls = {
           enable = true;
         };
         yamlls = {
