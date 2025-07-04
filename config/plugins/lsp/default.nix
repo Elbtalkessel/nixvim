@@ -34,6 +34,16 @@ _: {
         gopls = {
           enable = true;
         };
+        sqls = {
+          enable = true;
+          filetypes = [ "sql" ];
+          rootMarkers = [ ".sqlsrc.yaml" ];
+          cmd = [
+            "sqls"
+            "-config"
+            "$DEVENV_ROOT/.sqlrc.yaml"
+          ];
+        };
       };
       keymaps = {
         silent = true;
