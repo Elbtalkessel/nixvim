@@ -20,17 +20,6 @@
       command = "inoremap <buffer><silent> <ESC> <ESC>:close!<CR>";
     }
 
-    # Enable spellcheck for some filetypes
-    {
-      event = "FileType";
-      pattern = [
-        "tex"
-        "latex"
-        "markdown"
-      ];
-      command = "setlocal spell spelllang=en,fr";
-    }
-
     # Highlight yank text
     {
       event = "TextYankPost";
