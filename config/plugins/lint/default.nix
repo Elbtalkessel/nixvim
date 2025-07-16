@@ -66,6 +66,9 @@
         };
         markdownlint = {
           cmd = lib.getExe pkgs.markdownlint-cli;
+          args = [
+            "--disabel=MD013"
+          ];
         };
         pylint = {
           cmd = lib.getExe pkgs.pylint;

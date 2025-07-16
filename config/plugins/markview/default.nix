@@ -1,6 +1,6 @@
 {
   plugins.markview = {
-    enable = true;
+    enable = false;
     settings = {
       preview = {
         buf_ignore = [ ];
