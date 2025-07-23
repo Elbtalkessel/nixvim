@@ -1,9 +1,9 @@
 { config, lib, ... }:
 {
-  plugins.copilot-chat = lib.mkIf config.plugins.blink-copilot.enable {
+  plugins.copilot-chat = lib.mkIf config.copilot.enable {
     enable = true;
   };
-  plugins.render-markdown = lib.mkIf config.plugins.blink-copilot.enable {
+  plugins.render-markdown = lib.mkIf config.copilot.enable {
     enable = true;
     lazyLoad.settings = {
       ft = [

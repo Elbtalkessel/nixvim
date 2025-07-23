@@ -1,11 +1,9 @@
 {
   pkgs,
   lib,
+  config,
   ...
 }:
-let
-  copilot = false;
-in
 {
   extraPlugins =
     with pkgs.vimPlugins;
@@ -13,7 +11,7 @@ in
       blink-ripgrep-nvim
     ]
     ++ (
-      if copilot then
+      if config.copilot.enable then
         [
           blink-cmp-copilot
         ]
@@ -26,10 +24,10 @@ in
   ];
 
   plugins = {
-    blink-cmp-copilot.enable = copilot;
+    blink-cmp-copilot.enable = config.copilot.enable;
     blink-cmp-dictionary.enable = true;
     blink-cmp-spell.enable = true;
-    blink-copilot.enable = copilot;
+    blink-copilot.enable = config.copilot.enable;
     blink-cmp-git.enable = true;
     blink-emoji.enable = true;
     blink-ripgrep.enable = true;
@@ -57,7 +55,7 @@ in
             "git"
             "spell"
             "ripgrep"
-          ] ++ (if copilot then [ "copilot" ] else [ ]);
+          ] ++ (if config.copilot.enable then [ "copilot" ] else [ ]);
           providers = {
             ripgrep = {
               name = "Ripgrep";
@@ -74,7 +72,7 @@ in
               module = "blink-emoji";
               score_offset = 0;
             };
-            copilot = lib.mkIf copilot {
+            copilot = lib.mkIf config.copilot.enable {
               name = "copilot";
               module = "blink-copilot";
               async = true;
