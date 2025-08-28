@@ -34,12 +34,16 @@
           settings = ''
             {
               extra_args = { "--no-semi" },
+              disabled_filetypes = {
+                "markdown"
+              }
             }
           '';
         };
         stylua.enable = true;
         yamlfmt = {
-          enable = true;
+          # Idiotic formatting
+          enable = false;
         };
         hclfmt.enable = true;
       };
