@@ -35,6 +35,9 @@
         gopls = {
           enable = true;
         };
+        crystalline = {
+          enable = true;
+        };
         sqls = {
           enable = true;
           filetypes = [ "sql" ];

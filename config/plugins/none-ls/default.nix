@@ -46,6 +46,9 @@
           enable = false;
         };
         hclfmt.enable = true;
+        crystal_format = {
+          enable = true;
+        };
       };
     };
   };
