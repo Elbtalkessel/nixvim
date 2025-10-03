@@ -29,9 +29,6 @@
         ts_ls = {
           enable = true;
         };
-        volar = {
-          enable = true;
-        };
         gopls = {
           enable = true;
         };
