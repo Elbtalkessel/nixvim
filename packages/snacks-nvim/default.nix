@@ -32,5 +32,6 @@ vimUtils.buildVimPlugin {
     "snacks.image.placement"
     "snacks.image.image"
     "snacks.image.convert"
+    "snacks.explorer.init"
   ];
 }
