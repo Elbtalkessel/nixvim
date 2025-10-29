@@ -36,5 +36,22 @@
       ];
       command = "startinsert | 1";
     }
+
+    {
+      event = [
+        "BufNewFile"
+        "BufRead"
+      ];
+      pattern = [
+        "*.container"
+        "*.volume"
+        "*.network"
+        "*.build"
+        "*.kube"
+        "*.pod"
+        "*.target"
+      ];
+      command = "set ft=systemd";
+    }
   ];
 }
