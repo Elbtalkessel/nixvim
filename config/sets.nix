@@ -1,9 +1,7 @@
 {
   config = {
-    colorscheme = "kanagawa-wave";
+    colorscheme = "kanagawa-dragon";
     colorschemes = {
-      rose-pine.enable = true;
-      everforest.enable = true;
       kanagawa.enable = true;
     };
     performance = {
