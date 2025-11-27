@@ -14,7 +14,6 @@
         bash = [ "shellcheck" ];
         fish = [ "fish" ];
         go = [ "golangcilint" ];
-        json = [ "jsonlint" ];
         lua = [ "luacheck" ];
         markdown = [ "markdownlint" ];
         nix = [
@@ -57,9 +56,6 @@
             # Get absolute path of the linted file
             "--path-mode=abs"
           ];
-        };
-        jsonlint = {
-          cmd = lib.getExe pkgs.nodePackages.jsonlint;
         };
         luacheck = {
           cmd = lib.getExe pkgs.luaPackages.luacheck;

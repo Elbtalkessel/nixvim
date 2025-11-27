@@ -19,6 +19,8 @@ vimUtils.buildVimPlugin {
     "snacks.picker.config.highlights"
     "snacks.picker.core.list"
     "snacks.picker.util.db"
+    "snacks.picker.util.diff"
+    "snacks.picker.source.gh"
     "snacks.terminal"
     "snacks.win"
     "snacks.zen"
@@ -33,5 +35,9 @@ vimUtils.buildVimPlugin {
     "snacks.image.image"
     "snacks.image.convert"
     "snacks.explorer.init"
+    "snacks.gh.init"
+    "snacks.gh.buf"
+    "snacks.gh.render.init"
+    "snacks.gh.actions"
   ];
 }
