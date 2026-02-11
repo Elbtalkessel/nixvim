@@ -14,6 +14,12 @@
         go = [ "golangcilint" ];
         lua = [ "luacheck" ];
         markdown = [ "markdownlint" ];
+        nix = [
+          "deadnix"
+          "nix"
+          # TODO(pipe): use https://github.com/molybdenumsoftware/statix for pipe support.
+          #"statix"
+        ];
         sh = [ "shellcheck" ];
         yaml = [ "yamllint" ];
       };
@@ -21,6 +27,9 @@
       linters = {
         checkmake = {
           cmd = lib.getExe pkgs.checkmake;
+        };
+        deadnix = {
+          cmd = lib.getExe pkgs.deadnix;
         };
         fish = {
           cmd = lib.getExe pkgs.fish;
@@ -65,6 +74,10 @@
         sqlfluff = {
           cmd = lib.getExe pkgs.sqlfluff;
         };
+        # TODO(pipe): Use https://github.com/molybdenumsoftware/statix for pipe support.
+        #statix = {
+        #  cmd = lib.getExe pkgs.statix;
+        #};
         yamllint = {
           cmd = lib.getExe pkgs.yamllint;
         };

@@ -8,9 +8,12 @@
     };
     sources = {
       code_actions = {
-        statix.enable = true;
+        # TODO(pipe): Use https://github.com/molybdenumsoftware/statix for pipe support.
+        #statix.enable = true;
       };
       diagnostics = {
+        # TODO(pipe): Use https://github.com/molybdenumsoftware/statix for pipe support.
+        #statix.enable = true;
         yamllint.enable = true;
       };
       formatting = {
