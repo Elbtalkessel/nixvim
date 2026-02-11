@@ -8,11 +8,9 @@
     };
     sources = {
       code_actions = {
-        # gitsigns.enable = true;
         statix.enable = true;
       };
       diagnostics = {
-        statix.enable = true;
         yamllint.enable = true;
       };
       formatting = {
