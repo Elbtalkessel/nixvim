@@ -19,5 +19,4 @@ in
       ./keys.nix
       ./sets.nix
     ];
-  inherit (import ./options.nix { inherit lib; }) options config;
 }
