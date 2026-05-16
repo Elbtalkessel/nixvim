@@ -1,17 +1,12 @@
-{
-  pkgs,
-  lib,
-  config,
-  ...
-}:
+{ pkgs, lib, ... }:
 {
   extraPlugins = with pkgs.vimPlugins; [
     blink-ripgrep-nvim
   ];
 
-  plugins = {
+  plugins = rec {
     blink-cmp-dictionary.enable = true;
-    blink-cmp-spell.enable = true;
+    blink-cmp-spell.enable = false;
     blink-cmp-git.enable = true;
     blink-emoji.enable = true;
     blink-ripgrep.enable = true;
@@ -28,18 +23,20 @@
         };
 
         sources = {
-          default = [
-            "buffer"
-            "lsp"
-            "path"
-            "snippets"
-            # Community
-            "dictionary"
-            "emoji"
-            "git"
-            "spell"
-            "ripgrep"
-          ];
+          default = (
+            [
+              "buffer"
+              "lsp"
+              "path"
+              "snippets"
+              # Community
+              "dictionary"
+              "emoji"
+              "git"
+              "ripgrep"
+            ]
+            ++ lib.lists.optionals blink-cmp-spell.enable [ "spell" ]
+          );
           providers = {
             ripgrep = {
               name = "Ripgrep";
@@ -57,7 +54,7 @@
               score_offset = 0;
             };
             lsp.score_offset = 400;
-            spell = {
+            spell = lib.mkIf blink-cmp-spell.enable {
               name = "Spell";
               module = "blink-cmp-spell";
               score_offset = 0;
