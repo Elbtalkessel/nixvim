@@ -47,7 +47,7 @@
             client.server_capabilities.documentRangeFormattingProvider = false
           '';
           cmd = [
-            (builtins.toString (
+            (toString (
               pkgs.writeShellScript "sqls-wrapper.bash" ''
                 #!${lib.getExe pkgs.bash}
 
