@@ -3,7 +3,20 @@
   plugins = {
     lsp-lines.enable = true; # In-line diagnostic messages.
     lz-n.enable = true; # Lazy plugin loading.
-    noice.enable = true; # Messages, commands, popups.
+    noice = {
+      enable = true; # Messages, commands, popups
+      settings = {
+        routes = [
+          {
+            filter = {
+              event = "lsp";
+              kind = "progress";
+            };
+            opts.skip = true;
+          }
+        ];
+      };
+    };
     quicker.enable = true; # Mass search / replace.
     nvim-ufo.enable = true; # Code floding.
     colorizer.enable = true; # Color highlight.
