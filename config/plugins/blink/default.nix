@@ -7,8 +7,8 @@
   plugins = rec {
     blink-cmp-dictionary.enable = true;
     blink-cmp-spell.enable = false;
-    blink-cmp-git.enable = true;
-    blink-emoji.enable = true;
+    blink-cmp-git.enable = false;
+    blink-emoji.enable = false;
     blink-ripgrep.enable = true;
     blink-cmp = {
       enable = true;
@@ -29,40 +29,42 @@
               "lsp"
               "path"
               "snippets"
-              # Community
-              "dictionary"
-              "emoji"
-              "git"
-              "ripgrep"
             ]
+            # Community
+            ++ lib.lists.optionals blink-cmp-dictionary.enable [ "dictionary" ]
+            ++ lib.lists.optionals blink-ripgrep.enable [ "ripgrep" ]
             ++ lib.lists.optionals blink-cmp-spell.enable [ "spell" ]
+            ++ lib.lists.optionals blink-cmp-git.enable [ "git" ]
+            ++ lib.lists.optionals blink-emoji.enable [ "emoji" ]
           );
           providers = {
-            ripgrep = {
-              name = "Ripgrep";
-              module = "blink-ripgrep";
-              score_offset = 300;
+            lsp = {
+              score_offset = 900;
             };
-            dictionary = {
+            dictionary = lib.mkIf blink-cmp-dictionary.enable {
               name = "Dict";
               module = "blink-cmp-dictionary";
-              min_keyword_length = 100;
+              min_keyword_length = 800;
             };
-            emoji = {
-              name = "Emoji";
-              module = "blink-emoji";
-              score_offset = 0;
-            };
-            lsp.score_offset = 400;
             spell = lib.mkIf blink-cmp-spell.enable {
               name = "Spell";
               module = "blink-cmp-spell";
-              score_offset = 0;
+              score_offset = 700;
             };
-            git = {
+            ripgrep = lib.mkIf blink-ripgrep.enable {
+              name = "Ripgrep";
+              module = "blink-ripgrep";
+              score_offset = 600;
+            };
+            emoji = lib.mkIf blink-emoji.enable {
+              name = "Emoji";
+              module = "blink-emoji";
+              score_offset = 500;
+            };
+            git = lib.mkIf blink-cmp-git.enable {
               module = "blink-cmp-git";
               name = "git";
-              score_offset = 0;
+              score_offset = 400;
               opts = {
                 commit = { };
                 git_centers = {
