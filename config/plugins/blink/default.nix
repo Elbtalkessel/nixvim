@@ -55,6 +55,11 @@
               name = "Ripgrep";
               module = "blink-ripgrep";
               score_offset = 600;
+              opts = {
+                backend = {
+                  use = "gitgrep-or-ripgrep";
+                };
+              };
             };
             emoji = lib.mkIf blink-emoji.enable {
               name = "Emoji";

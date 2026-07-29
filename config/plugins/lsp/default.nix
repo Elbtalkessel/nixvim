@@ -8,33 +8,16 @@
       enable = true;
       inlayHints = true;
       servers = {
-        html = {
-          enable = true;
-        };
-        lua_ls = {
-          enable = true;
-        };
-        nixd = {
-          enable = true;
-        };
-        markdown_oxide = {
-          enable = true;
-        };
-        yamlls = {
-          enable = true;
-        };
-        pyright = {
-          enable = true;
-        };
-        ts_ls = {
-          enable = true;
-        };
-        gopls = {
-          enable = true;
-        };
-        crystalline = {
-          enable = true;
-        };
+        html.enable = true;
+        lua_ls.enable = true;
+        nixd.enable = true;
+        markdown_oxide.enable = true;
+        yamlls.enable = true;
+        pyright.enable = true;
+        ts_ls.enable = true;
+        gopls.enable = true;
+        crystalline.enable = true;
+        gleam.enable = true;
         sqls = {
           enable = true;
           filetypes = [ "sql" ];
