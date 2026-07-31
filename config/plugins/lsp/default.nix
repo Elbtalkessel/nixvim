@@ -18,6 +18,7 @@
         gopls.enable = true;
         crystalline.enable = true;
         gleam.enable = true;
+        nushell.enable = true;
         sqls = {
           enable = true;
           filetypes = [ "sql" ];
