@@ -71,6 +71,9 @@
         gleamfmt = {
           command = "${lib.getExe pkgs.gleam} format";
         };
+        nufmt = {
+          command = lib.getExe pkgs.nufmt;
+        };
       };
       formatters_by_ft = {
         python = [ "black" ];
@@ -84,6 +87,7 @@
           "shfmt"
         ];
         gleam = [ "gleamfmt" ];
+        nu = [ "nufmt" ];
         "_" = [
           "squeeze_blanks"
           "trim_whitespace"
