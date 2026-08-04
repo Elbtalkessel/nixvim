@@ -1,8 +1,17 @@
-{ pkgs, ... }:
 {
-  plugins.none-ls = {
+  pkgs,
+  lib,
+  config,
+  ...
+}:
+{
+  plugins.none-ls = rec {
     enable = true;
-    enableLspFormat = true;
+    # Leaving it for future reference, but
+    # disabling because LSP should LSPing and formatters should format
+    # the code. Plus it needs to be adjusted and be toggleable
+    # as conform.
+    enableLspFormat = false;
     settings = {
       updateInInsert = false;
     };
@@ -16,7 +25,7 @@
         #statix.enable = true;
         yamllint.enable = true;
       };
-      formatting = {
+      formatting = lib.mkIf enableLspFormat {
         nixfmt = {
           enable = true;
           package = pkgs.nixfmt-rfc-style;
@@ -53,7 +62,7 @@
       };
     };
   };
-  keymaps = [
+  keymaps = lib.mkIf config.plugins.none-ls.enableLspFormat [
     {
       mode = [
         "n"

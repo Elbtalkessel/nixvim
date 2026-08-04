@@ -15,6 +15,7 @@
       ''
         local slow_format_filetypes = {}
       '';
+    autoInstall.enable = true;
     settings = {
       # https://nix-community.github.io/nixvim/plugins/conform-nvim/settings/index.html
       # slow_format_filetypes not included
@@ -35,7 +36,7 @@
               end
             end
 
-            return { timeout_ms = 200, lsp_fallback = true }, on_format
+            return { timeout_ms = 200, lsp_fallback = false }, on_format
            end
         '';
       format_after_save = # Lua
@@ -49,32 +50,13 @@
               return
             end
 
-            return { lsp_fallback = true }
+            return { lsp_fallback = false }
           end
         '';
       log_level = "warn";
       notify_on_error = false;
       notify_no_formatters = false;
-      formatters = {
-        shellcheck = {
-          command = lib.getExe pkgs.shellcheck;
-        };
-        shfmt = {
-          command = lib.getExe pkgs.shfmt;
-        };
-        shellharden = {
-          command = lib.getExe pkgs.shellharden;
-        };
-        squeeze_blanks = {
-          command = lib.getExe' pkgs.coreutils "cat";
-        };
-        gleamfmt = {
-          command = "${lib.getExe pkgs.gleam} format";
-        };
-        nufmt = {
-          command = lib.getExe pkgs.nufmt;
-        };
-      };
+      # foramtters will be installed automatically because of `autoInstall.enable`
       formatters_by_ft = {
         python = [ "black" ];
         lua = [ "stylua" ];
@@ -86,7 +68,6 @@
           "shellharden"
           "shfmt"
         ];
-        gleam = [ "gleamfmt" ];
         nu = [ "nufmt" ];
         "_" = [
           "squeeze_blanks"
@@ -102,7 +83,7 @@
     "FormatDisable" = {
       bang = true;
       desc = "Toggle conform (autoformat) on save. Use bang to disable for current buffer only.";
-      command = # lua
+      command.__raw = # lua
         ''
           function(args)
             if args.bang then
@@ -115,7 +96,7 @@
     };
     "FormatEnable" = {
       desc = "Re-enable autoformat-on-save";
-      command = # lua
+      command.__raw = # lua
         ''
           function()
             vim.b.disable_autoformat = false
@@ -130,10 +111,9 @@
       mode = [
         "n"
         "v"
-        "x"
       ];
       key = "<leader>tfo";
-      action = "<CMD>FormatDisable<CR>";
+      action = "<cmd>FormatDisable<CR>";
       options = {
         desc = "toggle formatting off";
       };
@@ -142,10 +122,10 @@
       mode = [
         "n"
         "v"
-        "x"
       ];
+
       key = "<leader>tfb";
-      action = "<CMD>FormatEnable<CR>";
+      action = "<cmd>FormatEnable<CR>";
       options = {
         desc = "toggle formatting back on";
       };
